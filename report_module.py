@@ -1,4 +1,7 @@
 # Модуль отчетности
 class ReportModule:
     def generateReport(self, forecast_data):
-        print(f"Report:\nTicker: {forecast_data['ticker']}\nForecast Price: {forecast_data['forecast_price']}")
+        self.forecast_data = forecast_data
+        # Генерация простого текстового отчета
+        report = f"Прогноз для данных: {self.forecast_data}"
+        return report

@@ -4,9 +4,11 @@ import * from report_module
 
 # Интерфейс пользователя
 class UserInterface:
-    def getInput(self):
-        ticker = input("Enter ticker: ")
-        return ticker
+    def displayData(self, stock_data):
+        self.stock_data = stock_data
+        # Простой вывод данных об акциях
+        print(self.stock_data)
+
 
 # Подключаем модули и выполняем основной код
 stock_data_module = StockDataModule()

@@ -4,15 +4,8 @@ import requests
 
 # Модуль данных о акциях
 class StockDataModule:
-    def fetchData(self, ticker):
-        # Мы используем фиктивный API для получения данных.
-        # В реальной жизни вам следовало бы использовать реальный API
-        url = f"https://fakestockapi.com/ticker/{ticker}"
-        response = requests.get(url)
-        if response.status_code == 200:
-            print(f"Fetched data for {ticker}")
-            # Случайное значение для цены акции
-            return {"ticker": ticker, "price": random.randint(100, 1000)}
-        else:
-            print(f"Failed to fetch data for {ticker}")
-            return None
+    def updateData(self, stock_name):
+        self.stock_name = stock_name
+        # Обновление данных об акциях с использованием API
+        new_data = requests.get(f"https://api.stockdata.com/{self.stock_name}")
+        return new_data.json()
